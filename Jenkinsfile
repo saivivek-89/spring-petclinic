@@ -40,14 +40,16 @@ pipeline {
     }
 
     post {
-        success {
-            echo 'Build completed successfully!'
-        }
-        failure {
-            echo 'Build failed.'
-        }
-        always {
-            cleanWs()
-        }
+    success {
+        echo 'Build completed successfully!'
+    }
+
+    failure {
+        echo 'Build failed.'
+    }
+
+    // always {
+    //     cleanWs()
+    // }
     }
 }
