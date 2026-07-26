@@ -38,12 +38,12 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t dockersai891/spring-petclinic:v1.'
+                sh 'docker build -t dockersai891/spring-petclinic:${BUILD_NUMBER} .'
             }
         }
         stage('Push Docker Image') {
             steps {
-            sh 'docker push dockersai891/spring-petclinic:v1'
+            sh 'docker push dockersai891/spring-petclinic:${BUILD_NUMBER}'
             }
         }
 
