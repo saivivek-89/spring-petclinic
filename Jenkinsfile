@@ -43,7 +43,9 @@ pipeline {
         }
         stage('Push Docker Image') {
             steps {
-            sh 'docker push dockersai891/spring-petclinic:${BUILD_NUMBER}'
+                withDockerRegistry(credentialsId: 'docker-cred') {
+                    sh 'docker push dockersai891/spring-petclinic:${BUILD_NUMBER}'
+                }
             }
         }
 
