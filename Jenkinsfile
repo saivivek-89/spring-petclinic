@@ -36,6 +36,16 @@ pipeline {
                 sh './mvnw clean package'
             }
         }
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t dockersai891/spring-petclinic:v1.'
+            }
+        }
+        stage('Push Docker Image') {
+            steps {
+            sh 'docker push dockersai891/spring-petclinic:v1'
+            }
+        }
 
     }
 
